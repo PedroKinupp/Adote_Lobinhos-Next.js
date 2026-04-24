@@ -1,0 +1,24 @@
+.header {
+    background-color: #85cdf5;
+    display: flex;
+    align-items: center;
+    min-height: 15vh;
+    height: fit-content;
+    justify-content: space-around;
+}
+.link_container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+.hyperlink {
+    text-decoration: none;
+    color: #333333;
+    font-size: 30px;
+    font-family: 'Darker Grotesque';
+    font-weight: 700;
+    
+    &:hover {
+        text-decoration: underline #333333 5px;
+    }
+}
