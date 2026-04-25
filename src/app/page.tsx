@@ -1,7 +1,13 @@
-export default function home(){
-  return(
-    <div>
-      <h1 className="text-3xl font-bold text-blue-500">HOME</h1>
-    </div>
-  )
+import About from "./_components/About";
+import Hero from "./_components/Hero";
+import Values from "./_components/Values";
+
+export default function Home() {
+    return (
+        <>
+          <Hero/>
+          <About/>
+          <Values/>
+        </>
+    );
 }
