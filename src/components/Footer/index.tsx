@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styles from './styles.module.css'
 import Image from 'next/image'
 
@@ -33,7 +34,9 @@ export default function Footer(){
                             </p>
                         </ul>
                     </div>
-                    <a href="#" className={styles.btn}>Quem Somos</a>
+                    <Link href="/quem-somos" className={styles.btn}>
+                        Quem Somos
+                    </Link>
                 </div>
             </div>
             
