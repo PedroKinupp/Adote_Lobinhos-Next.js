@@ -1,0 +1,109 @@
+.card{
+    display:flex;
+    align-items:flex-start;
+    height: 350px;
+    margin-right: 10rem;
+    padding: 10px;
+}
+
+.cardReverse{
+    flex-direction:row-reverse;
+    margin-right: 0rem;
+    margin-left: 10rem;
+}
+
+.imageBlock{
+    position:relative;
+    width:460px;
+    height: 360px;
+    flex-shrink:0;
+}
+
+.decorativeFrame{
+    position:absolute;
+    top:0;
+    left:0;
+
+    width:380px;
+    height:280px;
+
+    background:#2C5680;
+    border:4px solid #4a4a4a;
+}
+
+.wolfImage{
+    position:absolute;
+    top:32px;
+    left:40px;
+    object-fit:cover;
+    z-index:2;
+    background-color:beige;
+}
+
+.cardReverse .decorativeFrame{
+    left:auto;
+    right:0;
+}
+
+.cardReverse .wolfImage{
+    left:auto;
+    right:40px;
+}
+
+.info{
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    height: 85%;
+    width: 25rem;
+    justify-content: space-between;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    align-items: center;
+    gap:30px;
+}
+
+.name{
+    font-family:"Darker Grotesque";
+    font-size:45px;
+    font-weight:600;
+}
+
+.age{
+    font-size:22px;
+    color: gray;
+}
+
+.description{
+    font-size:22px;
+    max-width:620px;
+    line-height:1.2;
+
+    display:-webkit-box;
+    line-clamp: 6;
+  -webkit-line-clamp: 6;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+
+.owner{
+    font-size:28px;
+}
+
+.badgeAdopted{
+    background:#7AAC3A;
+    color:white;
+    padding:6px 13px;
+    font-size:28px;
+}
+
+.badgeAvailable{
+    background:#4C90FF;
+    color:white;
+    padding:6px 13px;
+    font-size:28px;
+}
