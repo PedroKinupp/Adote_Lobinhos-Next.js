@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import styles from './styles.module.css'
+import loboType from '@/types/loboType';
 
 export default async function ShowLobinho( {
     params
@@ -7,26 +8,25 @@ export default async function ShowLobinho( {
     params : Promise<{ id : string }>
 } ){
     const { id } = await params
+    const data = await fetch(`http://localhost:3001/lobinhos?id=${id}`);
+
+    const [lobo]: loboType[] = await data.json();
+
     return(
         <div>
             <h1 className={styles.title}>
-                Nome do lobo
+                {lobo.nome}
             </h1>
             <div className={styles.container}>
                 <div className={styles.main_box}>
                     <div className="relative w-120 h-80">
                         <div className={styles.decorative_frame}></div>
                         <Image
-                            src=""
+                            src={lobo.imagem}
                             alt="Foto do lobo"
                             width={480}
                             height={320}
-                            className="
-                            absolute
-                            top-6 left-8
-                            object-cover
-                            z-10
-                            "
+                            className={styles.image}
                         />
                     </div>
                     <div className={styles.buttons}>
@@ -40,10 +40,7 @@ export default async function ShowLobinho( {
                 </div>
                 <div className={styles.text_box}>
                     <p className={styles.description}>
-                        Não obstante, o surgimento do comércio virtual faz parte de um processo de gerenciamento do levantamento das variáveis envolvidas. Não obstante, o surgimento do comércio virtual faz parte de um processo de gerenciamento do levantamento das variáveis envolvidas.Não obstante, o surgimento do comércio virtual faz parte de um processo de gerenciamento do levantamento das variáveis envolvidas.Não obstante, o surgimento do comércio virtual faz parte de um processo de gerenciamento do levantamento das variáveis envolvidas.
-                    </p>
-                    <p className={styles.description}>
-                        Não obstante, o surgimento do comércio virtual faz parte de um processo de gerenciamento do levantamento das variáveis envolvidas. Não obstante, o surgimento do comércio virtual faz parte de um processo de gerenciamento do levantamento das variáveis envolvidas.Não obstante, o surgimento do comércio virtual faz parte de um processo de gerenciamento do levantamento das variáveis envolvidas.Não obstante, o surgimento do comércio virtual faz parte de um processo de gerenciamento do levantamento das variáveis envolvidas.
+                        {lobo.descricao}
                     </p>
                 </div>
             </div>
