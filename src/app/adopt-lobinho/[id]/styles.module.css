@@ -12,11 +12,21 @@
     gap: 2rem;
 }
 
-.frame{
-    width: 200px;
-    height: 200px;
-    background-color: #2C5680;
+.decorativeFrame{
     border-radius: 50%;
+    height: 190px;
+    width: 190px;
+    overflow:hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wolfImage{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
 .title{
@@ -30,59 +40,4 @@
     font-weight: 600;
     font-size: 20px;
     padding: 5px;
-}
-
-.name_age_box{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.name_text_box{
-    display: flex;
-    flex-direction: column;
-    font-family: Darker Grotesque;
-    font-weight: 500;
-    width: 80%;
-}
-
-.age_text_box{
-    display: flex;
-    flex-direction: column;
-    font-family: Darker Grotesque;
-    font-weight: 500;
-    width: 10%;
-}
-
-.email_text_box{
-    display: flex;
-    flex-direction: column;
-    font-family: Darker Grotesque;
-    font-weight: 500;
-    width: 100%;
-}
-
-.label{
-    font-family: Darker Grotesque;
-    font-weight: 500;
-    font-size: 30px;
-}
-
-.input{
-    height: 38px;
-    border: none;
-    border-bottom: 2px solid rgb(107, 107, 107);
-    padding: 7px;
-    font-size: 24px;
-}
-
-.button{
-    color: white;
-    background-color: #2C5680;
-    font-family: Darker Grotesque;
-    font-weight: 600;
-    font-size: 36px;
-    padding: 5 50 5 50;
-    width: fit-content;
-    height: fit-content;
 }
