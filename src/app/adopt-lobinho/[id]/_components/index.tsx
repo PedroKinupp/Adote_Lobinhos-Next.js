@@ -1,0 +1,23 @@
+import styles from './styles.module.css'
+
+export default function Form(){
+    return (
+        <form className='flex flex-col items-center gap-20'>
+            <div className={styles.name_age_box}>
+                <div className={styles.name_text_box}>
+                    <label className={styles.label}>Seu nome:</label>
+                    <input type="text" className={styles.input} required/>
+                </div>
+                <div className={styles.age_text_box}>
+                    <label className={styles.label}>Idade:</label>
+                    <input type="number" className={styles.input} required/>
+                </div>
+            </div>
+            <div className={styles.email_text_box}>
+                <label className={styles.label}>E-mail:</label>
+                <input type="text" className={styles.input} required/>
+            </div>
+            <button className={styles.button} type="submit">Adotar</button>
+        </form>
+    )
+}

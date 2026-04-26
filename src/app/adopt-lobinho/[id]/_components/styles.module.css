@@ -1,0 +1,54 @@
+.name_age_box{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.name_text_box{
+    display: flex;
+    flex-direction: column;
+    font-family: Darker Grotesque;
+    font-weight: 500;
+    width: 80%;
+}
+
+.age_text_box{
+    display: flex;
+    flex-direction: column;
+    font-family: Darker Grotesque;
+    font-weight: 500;
+    width: 10%;
+}
+
+.email_text_box{
+    display: flex;
+    flex-direction: column;
+    font-family: Darker Grotesque;
+    font-weight: 500;
+    width: 100%;
+}
+
+.label{
+    font-family: Darker Grotesque;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.input{
+    height: 38px;
+    border: none;
+    border-bottom: 2px solid rgb(107, 107, 107);
+    padding: 7px;
+    font-size: 24px;
+}
+
+.button{
+    color: white;
+    background-color: #2C5680;
+    font-family: Darker Grotesque;
+    font-weight: 600;
+    font-size: 36px;
+    padding: 5 50 5 50;
+    width: fit-content;
+    height: fit-content;
+}
