@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 
 type LoboCardProps = {
     nome: string;
-    idade: string;
+    idade: number;
     descricao: string;
     imagem: string;
     adotadoPor?: string;
@@ -40,7 +40,7 @@ export default function LoboCard({
 
             <div className={styles.info}>
                 <div className="flex flex-col gap-5">
-                <div className={styles.header}>
+                <div className={`${styles.header} ${reversed ? styles.headerReverse : ""}`}>
                     <div>
                         <h2 className={styles.name}>{nome}</h2>
 
