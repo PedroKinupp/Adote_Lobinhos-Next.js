@@ -1,0 +1,9 @@
+.pagination{
+    margin: 3rem;
+    display: flex;
+    width: 10rem;
+    justify-content: space-between;
+    font-family: Darker Grotesque;
+    font-weight: 600;
+    font-size: 24px;
+}
