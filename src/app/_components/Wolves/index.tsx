@@ -2,38 +2,40 @@ import LoboCard from '@/components/Lobo-Card'
 import styles from './styles.module.css'
 import loboType from '@/types/loboType';
 import { unstable_cache } from 'next/cache';
+import LoboService from '@/services/loboService';
+import { axiosAdapter } from '@/lib/axios';
+
+const loboService = new LoboService(axiosAdapter);
 
 function sortearDois(total : number) {
 
-    const indicePrimeiroLobo = Math.floor(Math.random() * total);
+    const indicePrimeiroLobo = Math.floor(Math.random() * total + 1);
 
-    let indiceSegundoLobo = Math.floor(Math.random() * total);
+    let indiceSegundoLobo = Math.floor(Math.random() * total + 1);
 
     while (indicePrimeiroLobo === indiceSegundoLobo) {
         indiceSegundoLobo =
-            Math.floor(Math.random() * total);
+            Math.floor(Math.random() * total + 1);
     }
     return [indicePrimeiroLobo,indiceSegundoLobo];
 }
 
-const getRandomIndexes = unstable_cache(
+const getRandomWolves = unstable_cache(
     async () => {
-        return sortearDois(1000);
+        const [ind1, ind2] = sortearDois(1000);
+        const [lobo1] = await loboService.getLoboById(String(ind1))
+        const [lobo2] = await loboService.getLoboById(String(ind2))
+
+        return [lobo1, lobo2]
     },
     ["random-wolves"],
     {
-        revalidate: 300
+        revalidate: 10
     }
 );
 
 export default async function Wolves(){
-    const [ind1, ind2] = await getRandomIndexes();
-
-    const data1 = await fetch(`http://localhost:3001/lobinhos?id=${ind1}`);
-    const [lobo1]: loboType[] = await data1.json();
-
-    const data2 = await fetch(`http://localhost:3001/lobinhos?id=${ind2}`);
-    const [lobo2]: loboType[] = await data2.json();
+    const [lobo1, lobo2] = await getRandomWolves();
 
     return (
         <div className={styles.container}>
