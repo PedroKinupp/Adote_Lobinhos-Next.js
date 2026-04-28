@@ -15,7 +15,8 @@ class LoboService extends baseService {
             url: apiRoutes.Lobos,
             params: {
                 _limit: String(data.perPage),
-                _page: String(data.page)
+                _page: String(data.page),
+                nome_like: data.query
             }
         });
     }
