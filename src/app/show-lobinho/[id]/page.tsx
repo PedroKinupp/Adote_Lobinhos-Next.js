@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import styles from './styles.module.css'
 import loboType from '@/types/loboType';
+import LoboService from '@/services/loboService';
+import { axiosAdapter } from '@/lib/axios';
 
 export default async function ShowLobinho( {
     params
@@ -8,9 +10,9 @@ export default async function ShowLobinho( {
     params : Promise<{ id : string }>
 } ){
     const { id } = await params
-    const data = await fetch(`http://localhost:3001/lobinhos?id=${id}`);
+    const loboService = new LoboService(axiosAdapter);
 
-    const [lobo]: loboType[] = await data.json();
+    const [lobo] = await loboService.getLoboById(id);
 
     return(
         <div>
