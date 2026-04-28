@@ -4,6 +4,8 @@ import Search from "./_components/Search";
 import Pagination from "./_components/Pagination";
 import Link from "next/link";
 import styles from './styles.module.css'
+import { axiosAdapter } from "@/lib/axios";
+import LoboService from "@/services/loboService";
 
 type Props ={
     searchParams: Promise<{
@@ -18,11 +20,17 @@ export default async function ListLobinhos({ searchParams } : Props){
     const page = Number(params.page) || 1;
     const query = params.query || "";
     
+    const loboService = new LoboService(axiosAdapter);
 
-    const data = await fetch(`http://localhost:3001/lobinhos?_page=${page}&_limit=${limit}&nome_like=${query}`);
-    const response = await data.json();
+    const response = await loboService.getLobos({
+        page,
+        perPage: limit,
+        query
+    });
 
-    const totalCount = Number(data.headers.get("X-Total-Count") || 0);
+    const lobos = response.data;
+
+    const totalCount = Number(response.headers?.["x-total-count"] || 0);
     const totalPages = Math.ceil(totalCount / limit);
 
     return (
@@ -35,7 +43,7 @@ export default async function ListLobinhos({ searchParams } : Props){
                     </button>
                 </Link>
             </div>
-            {response.map((element: loboType, i: number) => (
+            {lobos.map((element: loboType, i: number) => (
                 <LoboCard
                     key={element.id}
                     nome={element.nome}
