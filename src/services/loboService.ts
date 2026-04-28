@@ -20,7 +20,7 @@ class LoboService extends baseService {
         });
     }
 
-    public async getPijamaById(id: string): Promise<loboType[]> {
+    public async getLoboById(id: string): Promise<loboType[]> {
         const response = await this.execute<null, loboType[]>({
             method: "GET",
             url: apiRoutes.Lobos,
