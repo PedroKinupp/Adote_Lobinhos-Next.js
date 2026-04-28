@@ -28,14 +28,15 @@ export default function LoboCard({
         >
             <div className={styles.imageBlock}>
                 <div className={styles.decorativeFrame}></div>
-
-                <Image
-                    src={imagem}
-                    alt={nome}
-                    width={380}
-                    height={280}
-                    className={styles.wolfImage}
-                />
+                    {imagem !== "" && (
+                        <Image
+                            src={imagem}
+                            alt={nome}
+                            width={380}
+                            height={280}
+                            className={styles.wolfImage}
+                        />
+                    )}
             </div>
 
             <div className={styles.info}>
