@@ -44,16 +44,17 @@ export default async function ListLobinhos({ searchParams } : Props){
                 </Link>
             </div>
             {lobos.map((element: loboType, i: number) => (
-                <LoboCard
-                    key={element.id}
-                    nome={element.nome}
-                    descricao={element.descricao}
-                    idade={element.idade}
-                    imagem={element.imagem}
-                    adotado={element.adotado}
-                    adotadoPor={element?.nomeDono}
-                    direction={i % 2 === 0 ? "left" : "right"}
-                />
+                <Link href={`show-lobinho/${element.id}`} key={element.id}>
+                    <LoboCard
+                        nome={element.nome}
+                        descricao={element.descricao}
+                        idade={element.idade}
+                        imagem={element.imagem}
+                        adotado={element.adotado}
+                        adotadoPor={element?.nomeDono}
+                        direction={i % 2 === 0 ? "left" : "right"}
+                    />
+                </Link>
             ))}
             <Pagination
                 currentPage={Number(page)}

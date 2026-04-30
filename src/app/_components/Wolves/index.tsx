@@ -4,6 +4,7 @@ import loboType from '@/types/loboType';
 import { unstable_cache } from 'next/cache';
 import LoboService from '@/services/loboService';
 import { axiosAdapter } from '@/lib/axios';
+import Link from 'next/link';
 
 const loboService = new LoboService(axiosAdapter);
 
@@ -30,7 +31,7 @@ const getRandomWolves = unstable_cache(
     },
     ["random-wolves"],
     {
-        revalidate: 10
+        revalidate: 300
     }
 );
 
@@ -40,7 +41,8 @@ export default async function Wolves(){
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>Lobos exemplo</h1>
-            <LoboCard
+            <Link href={`show-lobinho/${lobo1.id}`}>
+                <LoboCard
                 nome={lobo1.nome}
                 descricao={lobo1.descricao}
                 idade={lobo1.idade}
@@ -48,7 +50,9 @@ export default async function Wolves(){
                 adotado={lobo1.adotado}
                 adotadoPor={lobo1?.nomeDono}
                 direction="right"
-            />
+                />
+            </Link>
+            <Link href={`show-lobinho/${lobo2.id}`}>
             <LoboCard
                 nome={lobo2.nome}
                 descricao={lobo2.descricao}
@@ -57,7 +61,8 @@ export default async function Wolves(){
                 adotado={lobo2.adotado}
                 adotadoPor={lobo2?.nomeDono}
                 direction="left"
-            />
+                />
+            </Link>
         </div>
     )
 }
