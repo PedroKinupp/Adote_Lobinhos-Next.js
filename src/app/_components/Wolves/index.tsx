@@ -41,8 +41,8 @@ export default async function Wolves(){
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>Lobos exemplo</h1>
-            <Link href={`show-lobinho/${lobo1.id}`}>
                 <LoboCard
+                id={lobo1.id}
                 nome={lobo1.nome}
                 descricao={lobo1.descricao}
                 idade={lobo1.idade}
@@ -51,9 +51,8 @@ export default async function Wolves(){
                 adotadoPor={lobo1?.nomeDono}
                 direction="right"
                 />
-            </Link>
-            <Link href={`show-lobinho/${lobo2.id}`}>
             <LoboCard
+                id={lobo2.id}
                 nome={lobo2.nome}
                 descricao={lobo2.descricao}
                 idade={lobo2.idade}
@@ -62,7 +61,6 @@ export default async function Wolves(){
                 adotadoPor={lobo2?.nomeDono}
                 direction="left"
                 />
-            </Link>
         </div>
     )
 }
