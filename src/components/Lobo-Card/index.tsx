@@ -1,7 +1,9 @@
 import Image from "next/image";
 import styles from "./styles.module.css";
+import Link from "next/link";
 
 type LoboCardProps = {
+    id: number
     nome: string;
     idade: number;
     descricao: string;
@@ -12,6 +14,7 @@ type LoboCardProps = {
 };
 
 export default function LoboCard({
+    id,
     nome,
     idade,
     descricao,
@@ -23,7 +26,7 @@ export default function LoboCard({
     const reversed = direction === "right";
 
     return (
-        <section
+        <Link href={`/show-lobinho/${id}`}
             className={`${styles.card} ${reversed ? styles.cardReverse : ""}`}
         >
             <div className={styles.imageBlock}>
@@ -67,6 +70,6 @@ export default function LoboCard({
                     </strong>
                 )}
             </div>
-        </section>
+        </Link>
     );
 }
