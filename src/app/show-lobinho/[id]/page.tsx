@@ -3,6 +3,8 @@ import styles from './styles.module.css'
 import loboType from '@/types/loboType';
 import LoboService from '@/services/loboService';
 import { axiosAdapter } from '@/lib/axios';
+import Link from 'next/link';
+import ExcludeButton from './_components';
 
 export default async function ShowLobinho( {
     params
@@ -32,12 +34,13 @@ export default async function ShowLobinho( {
                         />
                     </div>
                     <div className={styles.buttons}>
-                        <button className={styles.adopt}>
+                        <Link 
+                            href={`/adopt-lobinho/${Number(id)}`} 
+                            className={`${styles.adopt} ${lobo.adotado ? styles.disabled : ''}`}
+                        >
                             Adotar
-                        </button>
-                        <button className={styles.delete}>
-                            Excluir
-                        </button>
+                        </Link>
+                        <ExcludeButton id={`${id}`}/>
                     </div>
                 </div>
                 <div className={styles.text_box}>

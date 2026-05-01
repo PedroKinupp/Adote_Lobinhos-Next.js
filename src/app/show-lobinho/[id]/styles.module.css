@@ -55,14 +55,10 @@
     cursor: pointer;
 }
 
-.delete{
-    color: white;
-    background: #DE5959;
-    font-family: Darker Grotesque;
-    font-weight: 700;
-    font-size: 22px;
-    padding: 15 50 15 50;
-    cursor: pointer;
+.disabled {
+    background: gray;
+    pointer-events: none;
+    opacity: 0.7;
 }
 
 .text_box{
