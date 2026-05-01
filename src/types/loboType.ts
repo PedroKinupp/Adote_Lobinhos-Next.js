@@ -5,9 +5,9 @@ interface loboType{
     descricao: string
     imagem: string
     adotado: boolean
-    nomeDono?: string
-    idadeDono?: number
-    emailDono?: string
+    nomeDono?: string | null
+    idadeDono?: number | null
+    emailDono?: string | null
 }
 
 export default loboType
